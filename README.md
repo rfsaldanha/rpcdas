@@ -1,4 +1,4 @@
-rpcdas: An R PCDaS API wrapper
+# rpcdas: An R PCDaS API wrapper
 
 rpcdas is an R package with wrapper functions for the PCDaS API. 
 
