@@ -52,9 +52,39 @@ get_sim(agg = "uf_res", ano = 2010, cid_like = "I")
 # Total number of deaths by state of residence in 2010 were the basic cause of deaths are some of the vector.
 get_sim(agg = "uf_res", ano = 2010, cid_in = c("I219", "B342", "R98"))
 
-# Total number of deaths by state of residence in 2020 with a SQL filter.
+# Total number of deaths by state of residence in 2010 with a SQL filter.
 get_sim(agg = "uf_res", ano = 2010, more_filters = "LEFT(CAUSABAS, 1) IN ('V', 'W', 'X', 'Y')")
 ```
+
+### SINASC
+
+```{r}
+# Total number of births by municipality of residence in 2010
+get_sinasc(agg = "mun_res", ano = 2010)
+
+# Total number of births by state of borth in 2010
+get_sinasc(agg = "uf_ocor", ano = 2010)
+
+# Total number of births by municipality of residence in 2010, with sex filter
+get_sinasc(agg = "mun_res", ano = 2010, sexo = "Masculino")
+```
+
+### SIH
+
+```{r}
+# Total number of hospitalizations by municipality of residence in 2010
+get_sih(agg = "mun_res", ano = 2010)
+
+# Total number of hospitalizations by state of the hospital in 2010
+get_sih(agg = "uf_ocor", ano = 2010)
+
+# Total number of hospitalizations by municipality of residence in 2010 with sex filter
+get_sih(agg = "mun_res", ano = 2010, sexo = "Masculino")
+
+# Total number of hospitalizations by state of residence in 2010 with age filters
+get_sih(agg = "uf_res", ano = 2010, idade_a = 10, idade_b = 30)
+```
+
 
 ### Generic query
 
