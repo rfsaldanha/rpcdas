@@ -4,7 +4,7 @@ Version: 0.1.0
 Authors@R: 
     person("Raphael", "Saldanha", , "raphael.saldanha@icict.fiocruz.br", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0003-0652-8466"))
-Description: What the package does (one paragraph).
+Description: Wrapper functions for the PCDaS API.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
