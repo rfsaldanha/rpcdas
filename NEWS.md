@@ -1,3 +1,5 @@
+# rpcdas 0.1.2
+
 # rpcdas 0.1.1
 * Adds get_sinasc function with basic filters.
 
