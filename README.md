@@ -51,6 +51,9 @@ get_sim(agg = "uf_res", ano = 2010, cid_like = "I")
 
 # Total number of deaths by state of residence in 2010 were the basic cause of deaths are some of the vector.
 get_sim(agg = "uf_res", ano = 2010, cid_in = c("I219", "B342", "R98"))
+
+# Total number of deaths by state of residence in 2020 with a SQL filter.
+get_sim(agg = "uf_res", ano = 2010, more_filters = "LEFT(CAUSABAS, 1) IN ('V', 'W', 'X', 'Y')")
 ```
 
 ### Generic query
