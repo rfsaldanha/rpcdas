@@ -99,8 +99,35 @@
 <span><span class="co"># Total number of deaths by state of residence in 2010 were the basic cause of deaths are some of the vector.</span></span>
 <span><span class="fu"><a href="reference/get_sim.html">get_sim</a></span><span class="op">(</span>agg <span class="op">=</span> <span class="st">"uf_res"</span>, ano <span class="op">=</span> <span class="fl">2010</span>, cid_in <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"I219"</span>, <span class="st">"B342"</span>, <span class="st">"R98"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Total number of deaths by state of residence in 2020 with a SQL filter.</span></span>
+<span><span class="co"># Total number of deaths by state of residence in 2010 with a SQL filter.</span></span>
 <span><span class="fu"><a href="reference/get_sim.html">get_sim</a></span><span class="op">(</span>agg <span class="op">=</span> <span class="st">"uf_res"</span>, ano <span class="op">=</span> <span class="fl">2010</span>, more_filters <span class="op">=</span> <span class="st">"LEFT(CAUSABAS, 1) IN ('V', 'W', 'X', 'Y')"</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="section level3">
+<h3 id="sinasc">SINASC<a class="anchor" aria-label="anchor" href="#sinasc"></a>
+</h3>
+<pre class="{r}"><code><span><span class="co"># Total number of births by municipality of residence in 2010</span></span>
+<span><span class="fu"><a href="reference/get_sinasc.html">get_sinasc</a></span><span class="op">(</span>agg <span class="op">=</span> <span class="st">"mun_res"</span>, ano <span class="op">=</span> <span class="fl">2010</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Total number of births by state of borth in 2010</span></span>
+<span><span class="fu"><a href="reference/get_sinasc.html">get_sinasc</a></span><span class="op">(</span>agg <span class="op">=</span> <span class="st">"uf_ocor"</span>, ano <span class="op">=</span> <span class="fl">2010</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Total number of births by municipality of residence in 2010, with sex filter</span></span>
+<span><span class="fu"><a href="reference/get_sinasc.html">get_sinasc</a></span><span class="op">(</span>agg <span class="op">=</span> <span class="st">"mun_res"</span>, ano <span class="op">=</span> <span class="fl">2010</span>, sexo <span class="op">=</span> <span class="st">"Masculino"</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="section level3">
+<h3 id="sih">SIH<a class="anchor" aria-label="anchor" href="#sih"></a>
+</h3>
+<pre class="{r}"><code><span><span class="co"># Total number of hospitalizations by municipality of residence in 2010</span></span>
+<span><span class="fu"><a href="reference/get_sih.html">get_sih</a></span><span class="op">(</span>agg <span class="op">=</span> <span class="st">"mun_res"</span>, ano <span class="op">=</span> <span class="fl">2010</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Total number of hospitalizations by state of the hospital in 2010</span></span>
+<span><span class="fu"><a href="reference/get_sih.html">get_sih</a></span><span class="op">(</span>agg <span class="op">=</span> <span class="st">"uf_ocor"</span>, ano <span class="op">=</span> <span class="fl">2010</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Total number of hospitalizations by municipality of residence in 2010 with sex filter</span></span>
+<span><span class="fu"><a href="reference/get_sih.html">get_sih</a></span><span class="op">(</span>agg <span class="op">=</span> <span class="st">"mun_res"</span>, ano <span class="op">=</span> <span class="fl">2010</span>, sexo <span class="op">=</span> <span class="st">"Masculino"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Total number of hospitalizations by state of residence in 2010 with age filters</span></span>
+<span><span class="fu"><a href="reference/get_sih.html">get_sih</a></span><span class="op">(</span>agg <span class="op">=</span> <span class="st">"uf_res"</span>, ano <span class="op">=</span> <span class="fl">2010</span>, idade_a <span class="op">=</span> <span class="fl">10</span>, idade_b <span class="op">=</span> <span class="fl">30</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="section level3">
 <h3 id="generic-query">Generic query<a class="anchor" aria-label="anchor" href="#generic-query"></a>
