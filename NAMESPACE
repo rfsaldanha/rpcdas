@@ -3,6 +3,7 @@
 export("%>%")
 export(cid_seq)
 export(generic_pcdas_query)
+export(get_pcdas_token_renviron)
 export(get_sih)
 export(get_sim)
 export(get_sinasc)
