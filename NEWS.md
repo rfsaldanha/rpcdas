@@ -1,3 +1,6 @@
+# rpcdas 0.1.3
+* Documentation correction.
+
 # rpcdas 0.1.2
 * Adds get_sih function with basic filters.
 
