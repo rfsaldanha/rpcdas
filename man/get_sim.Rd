@@ -25,9 +25,9 @@ get_sim(
 
 \item{sexo}{character. Sex of the deceased. \code{Masculino} for males, \code{Feminino} for females and \code{Ignorado} for unknown.}
 
-\item{idade_a}{numeric. Maximum age of the deceased, in years.}
+\item{idade_a}{numeric. Minimum age of the deceased, in years.}
 
-\item{idade_b}{numeric. Minimum age of the deceased, in years.}
+\item{idade_b}{numeric. Maximum age of the deceased, in years.}
 
 \item{cid_like}{character. CID-10 code of basic cause of death. Used with a \code{LIKE} operator.}
 

@@ -8,8 +8,8 @@
 #' @param ano numeric. Year of death.
 #' @param pcdas_token character. PCDaS API token. If not provided, the function will look for it on renvirom.
 #' @param sexo character. Sex of the deceased. \code{Masculino} for males, \code{Feminino} for females and \code{Ignorado} for unknown.
-#' @param idade_a numeric. Maximum age of the deceased, in years.
-#' @param idade_b numeric. Minimum age of the deceased, in years.
+#' @param idade_a numeric. Minimum age of the deceased, in years.
+#' @param idade_b numeric. Maximum age of the deceased, in years.
 #' @param cid_like character. CID-10 code of basic cause of death. Used with a \code{LIKE} operator.
 #' @param cid_in character vector. CID-10 codes of basic cause of death. Used with a \code{IN} operator.
 #' @param more_filters character. Additional filters can be added by using this parameter, with a SQL query.

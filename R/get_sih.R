@@ -8,8 +8,8 @@
 #' @param ano numeric. Year of birth
 #' @param pcdas_token character. PCDaS API token. If not provided, the function will look for it on renvirom.
 #' @param sexo character. Sex of the new birth \code{Masculino} for males, \code{Feminino} for females and \code{Ignorado} for unknown.
-#' @param idade_a numeric. Maximum age of the patient, in years.
-#' @param idade_b numeric. Minimum age of the patient, in years.
+#' @param idade_a numeric. Minimum age of the patient, in years.
+#' @param idade_b numeric. Maximum age of the patient, in years.
 #' @param more_filters character. Additional filters can be added by using this parameter, with a SQL query.
 #'
 #' @details

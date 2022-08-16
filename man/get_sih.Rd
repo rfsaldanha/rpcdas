@@ -23,9 +23,9 @@ get_sih(
 
 \item{sexo}{character. Sex of the new birth \code{Masculino} for males, \code{Feminino} for females and \code{Ignorado} for unknown.}
 
-\item{idade_a}{numeric. Maximum age of the patient, in years.}
+\item{idade_a}{numeric. Minimum age of the patient, in years.}
 
-\item{idade_b}{numeric. Minimum age of the patient, in years.}
+\item{idade_b}{numeric. Maximum age of the patient, in years.}
 
 \item{more_filters}{character. Additional filters can be added by using this parameter, with a SQL query.}
 }
