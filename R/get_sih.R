@@ -37,6 +37,11 @@ get_sih <- function(agg, ano, pcdas_token = NULL, sexo = NULL, idade_a = NULL, i
     pcdas_token <- get_pcdas_token_renviron()
   }
 
+  # Check if token have access to index
+  if(!("datasus-sih" %in% list_pcdas_tables())){
+    stop("Your token does not have access to 'datasus-sih' index. Please ask PCDaS to grant your access to this index.")
+  }
+
   # Variable aggregation name
   if(agg == "uf_res"){
     agg <- "res_CODIGO_UF"
