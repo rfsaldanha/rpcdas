@@ -1,3 +1,6 @@
+# rpcdas 0.1.4
+* Verify token access to index internally on get_* functions.
+
 # rpcdas 0.1.3
 * Documentation correction.
 
