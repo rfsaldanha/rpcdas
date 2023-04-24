@@ -40,9 +40,7 @@ pcdas_query_request <- function(body, pcdas_token = NULL, throttle_rate = 30/60,
       content <- append(content, list(tmp_content))
     }
 
-
     # Update more
-    #length(tmp_content$rows) == 0
     if(!is.null(content[[length(content)]]$cursor) & length(tmp_content$rows) > 0){
       more <- TRUE
       body <- jsonlite::toJSON(
@@ -57,8 +55,6 @@ pcdas_query_request <- function(body, pcdas_token = NULL, throttle_rate = 30/60,
   }
 
   return(content)
-
-
 }
 
 
