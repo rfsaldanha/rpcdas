@@ -6,6 +6,7 @@
 \usage{
 get_sim(
   agg,
+  agg_time = "year",
   ano,
   pcdas_token = NULL,
   sexo = NULL,
@@ -13,13 +14,16 @@ get_sim(
   idade_b = NULL,
   cid_like = NULL,
   cid_in = NULL,
-  more_filters = NULL
+  more_filters = NULL,
+  fetch_size = 65000
 )
 }
 \arguments{
 \item{agg}{character. Spatial aggregation level. \code{uf_res} for UF of residence. \code{uf_ocor} for UF of occurrence. \code{regsaude_res} for regiao de saude of residence. \code{regsaude_ocor} for regiao de saúde of occurence. \code{mun_res} for municipality of residence. \code{mun_ocor} for municipality of ocurrence.}
 
-\item{ano}{numeric. Year of death.}
+\item{agg_time}{character. Time aggregation level. \code{year} for yearly data. \code{month} for monthly data. \code{week} for weekly data. Defaults to \code{year}.}
+
+\item{ano}{vector. Year of death.}
 
 \item{pcdas_token}{character. PCDaS API token. If not provided, the function will look for it on renvirom.}
 
@@ -34,6 +38,8 @@ get_sim(
 \item{cid_in}{character vector. CID-10 codes of basic cause of death. Used with a \code{IN} operator.}
 
 \item{more_filters}{character. Additional filters can be added by using this parameter, with a SQL query.}
+
+\item{fetch_size}{character. Pagination size for API call.}
 }
 \description{
 Retrieves mortality data from PCDaS API.
