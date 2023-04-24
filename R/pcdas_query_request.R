@@ -4,12 +4,12 @@
 #'
 #' @param body Body of the request, in JSON format.
 #' @param pcdas_token character. PCDaS API token. If not provided, the function will look for it on renvirom.
-#' @param throttle_rate Rate of requests per second allowed. Defaults to 30/60 (thirty requests per minute).
-#' @param max_tries Max number of retries before fail. Defaults to 3.
+#' @param throttle_rate Rate of requests per second allowed. Defaults to 1 request per second.
+#' @param max_tries Max number of retries before fail. Defaults to 10.
 #'
 #' @return A list
 #'
-pcdas_query_request <- function(body, pcdas_token = NULL, throttle_rate = 30/60, max_tries = 3){
+pcdas_query_request <- function(body, pcdas_token = NULL, throttle_rate = 1, max_tries = 10){
   # Function argument check
   checkmate::assert_string(x = body)
   checkmate::assert_numeric(x = throttle_rate, lower = 0)
