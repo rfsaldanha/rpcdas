@@ -10,7 +10,7 @@ convert_content_to_df(content)
 \item{content}{Content from API.}
 }
 \value{
-A tibble.
+A data.frame
 }
 \description{
 Convert content received from a PCDaS API query to a tibble object.
