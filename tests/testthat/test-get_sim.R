@@ -102,3 +102,24 @@ test_that("get sim with uf and other filters works", {
   expect_equal("tbl_df", class(res)[1])
   expect_gt(nrow(res), 20)
 })
+
+test_that("get sim with mun residence works by month works", {
+  res <- get_sim(agg = "mun_res", agg_time = "month", ano = 2010)
+
+  expect_equal("tbl_df", class(res)[1])
+  expect_gt(nrow(res), 62000)
+})
+
+test_that("get sim with mun residence works by week works", {
+  res <- get_sim(agg = "mun_res", agg_time = "week", ano = 2010)
+
+  expect_equal("tbl_df", class(res)[1])
+  expect_gt(nrow(res), 190000)
+})
+
+test_that("get sim with mun residence works with multiple years works", {
+  res <- get_sim(agg = "mun_res", agg_time = "year", ano = c(2010, 2011))
+
+  expect_equal("tbl_df", class(res)[1])
+  expect_gt(nrow(res), 11000)
+})
