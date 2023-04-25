@@ -1,3 +1,7 @@
+# rpcdas 0.2.0
+* Add month and week aggregation.
+* Query multiple years.
+
 # rpcdas 0.1.4
 * Verify token access to index internally on get_* functions.
 
