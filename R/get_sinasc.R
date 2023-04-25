@@ -26,6 +26,7 @@ get_sinasc <- function(agg, agg_time = "year", ano, pcdas_token = NULL, sexo = N
   checkmate::assert_string(x = pcdas_token, null.ok = TRUE)
   checkmate::assert_choice(x = sexo, choices = c("Masculino", "Feminino", "Ignorado"), null.ok = TRUE)
   checkmate::assert_string(x = more_filters, null.ok = TRUE)
+  checkmate::assert_number(x = fetch_size, lower = 1)
 
   # Try to get PCDaS API token from renviron if not provided
   if(is.null(pcdas_token)){

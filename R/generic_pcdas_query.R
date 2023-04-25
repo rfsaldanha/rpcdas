@@ -22,6 +22,7 @@ generic_pcdas_query <- function(pcdas_token = NULL, sql_query, fetch_size = 6500
   # Function argument check
   checkmate::assert_string(x = pcdas_token, null.ok = TRUE)
   checkmate::assert_string(x = sql_query)
+  checkmate::assert_number(x = fetch_size, lower = 1)
 
   # Try to get PCDaS API token from renviron of not provided
   if(is.null(pcdas_token)){

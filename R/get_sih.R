@@ -33,6 +33,7 @@ get_sih <- function(agg, agg_time = "year", ano, pcdas_token = NULL, sexo = NULL
   checkmate::assert_number(x = idade_a, lower = 0, null.ok = TRUE)
   checkmate::assert_number(x = idade_b, lower = 0, null.ok = TRUE)
   checkmate::assert_string(x = more_filters, null.ok = TRUE)
+  checkmate::assert_number(x = fetch_size, lower = 1)
 
   # Try to get PCDaS API token from renviron if not provided
   if(is.null(pcdas_token)){
