@@ -4,10 +4,20 @@
 \alias{get_sinasc}
 \title{Get new births data from SINASC}
 \usage{
-get_sinasc(agg, ano, pcdas_token = NULL, sexo = NULL, more_filters = NULL)
+get_sinasc(
+  agg,
+  agg_time = "year",
+  ano,
+  pcdas_token = NULL,
+  sexo = NULL,
+  more_filters = NULL,
+  fetch_size = 65000
+)
 }
 \arguments{
 \item{agg}{character. Spatial aggregation level. \code{uf_res} for UF of residence. \code{uf_ocor} for UF of occurrence. \code{regsaude_res} for regiao de saude of residence. \code{regsaude_ocor} for regiao de saúde of occurence. \code{mun_res} for municipality of residence. \code{mun_ocor} for municipality of ocurrence.}
+
+\item{agg_time}{character. Time aggregation level. \code{year} for yearly data. \code{month} for monthly data. \code{week} for weekly data. Defaults to \code{year}.}
 
 \item{ano}{numeric. Year of birth}
 
