@@ -21,5 +21,6 @@ Imports:
     tibble
 Suggests: 
     testthat (>= 3.0.0)
+Config/testthat/parallel: true
 Config/testthat/edition: 3
 URL: https://rfsaldanha.github.io/rpcdas/
