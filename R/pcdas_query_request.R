@@ -40,7 +40,7 @@ pcdas_query_request <- function(body, pcdas_token = NULL, throttle_rate = 1, max
       content <- append(content, list(tmp_content))
     }
 
-    # Update more
+    # If cursor is present and row length bigger than 0, go for next page
     if(!is.null(content[[length(content)]]$cursor) & length(tmp_content$rows) > 0){
       more <- TRUE
       body <- jsonlite::toJSON(
@@ -49,6 +49,7 @@ pcdas_query_request <- function(body, pcdas_token = NULL, throttle_rate = 1, max
           sql = list(sql = list(cursor = content[[length(content)]]$cursor))
         ), auto_unbox = TRUE
       )
+      # If not, stops while statement
     } else {
       more <- FALSE
     }
