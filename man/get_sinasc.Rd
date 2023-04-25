@@ -26,6 +26,8 @@ get_sinasc(
 \item{sexo}{character. Sex of the new birth \code{Masculino} for males, \code{Feminino} for females and \code{Ignorado} for unknown.}
 
 \item{more_filters}{character. Additional filters can be added by using this parameter, with a SQL query.}
+
+\item{fetch_size}{character. Pagination size for API call.}
 }
 \description{
 Retrieves new births data from PCDaS API.

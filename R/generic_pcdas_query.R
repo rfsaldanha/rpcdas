@@ -12,6 +12,7 @@
 #' In the query, must be a usea a database listed with \code{list_pcdas_tables}.
 #'
 #' @param pcdas_token character. PCDaS API token. If not provided, the function will look for it on renvirom.
+#' @param fetch_size character. Pagination size for API call.
 #'
 #' @examples
 #' # Runs a query

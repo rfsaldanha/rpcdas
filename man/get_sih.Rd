@@ -32,6 +32,8 @@ get_sih(
 \item{idade_b}{numeric. Maximum age of the patient, in years.}
 
 \item{more_filters}{character. Additional filters can be added by using this parameter, with a SQL query.}
+
+\item{fetch_size}{character. Pagination size for API call.}
 }
 \description{
 Retrieves hospitalization data from PCDaS API.

@@ -10,6 +10,7 @@
 #' @param pcdas_token character. PCDaS API token. If not provided, the function will look for it on renvirom.
 #' @param sexo character. Sex of the new birth \code{Masculino} for males, \code{Feminino} for females and \code{Ignorado} for unknown.
 #' @param more_filters character. Additional filters can be added by using this parameter, with a SQL query.
+#' @param fetch_size character. Pagination size for API call.
 #'
 #' @examples
 #' # Some examples

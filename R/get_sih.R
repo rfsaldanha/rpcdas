@@ -12,6 +12,7 @@
 #' @param idade_a numeric. Minimum age of the patient, in years.
 #' @param idade_b numeric. Maximum age of the patient, in years.
 #' @param more_filters character. Additional filters can be added by using this parameter, with a SQL query.
+#' @param fetch_size character. Pagination size for API call.
 #'
 #' @details
 #' If \code{idade_a} is supplied, the query will filter records with age less or equal. If \code{idade_b} is supplied, the query will filter records with age more or equal. If both are supplied, the query will filter records in the interval, closed on both sides.
