@@ -4,14 +4,21 @@
 \alias{pcdas_query_request}
 \title{Execute PCDaS query request}
 \usage{
-pcdas_query_request(body, throttle_rate = 30/60, max_tries = 3)
+pcdas_query_request(
+  body,
+  pcdas_token = NULL,
+  throttle_rate = 1,
+  max_tries = 10
+)
 }
 \arguments{
 \item{body}{Body of the request, in JSON format.}
 
-\item{throttle_rate}{Rate of requests per second allowed. Defaults to 30/60 (thirty requests per minute).}
+\item{pcdas_token}{character. PCDaS API token. If not provided, the function will look for it on renvirom.}
 
-\item{max_tries}{Max number of retries before fail. Defaults to 3.}
+\item{throttle_rate}{Rate of requests per second allowed. Defaults to 1 request per second.}
+
+\item{max_tries}{Max number of retries before fail. Defaults to 10.}
 }
 \value{
 A list

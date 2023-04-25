@@ -4,7 +4,7 @@
 #'
 #' @param content Content from API.
 #'
-#' @return A tibble.
+#' @return A data.frame
 #'
 convert_content_to_df <- function(content){
   variables = unlist(content$columns)
@@ -15,3 +15,11 @@ convert_content_to_df <- function(content){
   names(df) <- column_names
   return(df)
 }
+
+convert_list_content_to_df <- function(list_content){
+  tmp <- lapply(list_content, convert_content_to_df)
+  tmp <- lapply(tmp, `names<-`, names(tmp[[1]]))
+  res <- as.data.frame(do.call(rbind, tmp))
+  return(res)
+}
+

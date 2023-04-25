@@ -6,16 +6,20 @@
 \usage{
 get_sih(
   agg,
+  agg_time = "year",
   ano,
   pcdas_token = NULL,
   sexo = NULL,
   idade_a = NULL,
   idade_b = NULL,
-  more_filters = NULL
+  more_filters = NULL,
+  fetch_size = 65000
 )
 }
 \arguments{
 \item{agg}{character. Spatial aggregation level. \code{uf_res} for UF of residence. \code{uf_ocor} for UF of occurrence. \code{regsaude_res} for regiao de saude of residence. \code{regsaude_ocor} for regiao de saúde of occurence. \code{mun_res} for municipality of residence. \code{mun_ocor} for municipality of ocurrence.}
+
+\item{agg_time}{character. Time aggregation level. \code{year} for yearly data. \code{month} for monthly data. \code{week} for weekly data. Defaults to \code{year}.}
 
 \item{ano}{numeric. Year of birth}
 
@@ -28,6 +32,8 @@ get_sih(
 \item{idade_b}{numeric. Maximum age of the patient, in years.}
 
 \item{more_filters}{character. Additional filters can be added by using this parameter, with a SQL query.}
+
+\item{fetch_size}{character. Pagination size for API call.}
 }
 \description{
 Retrieves hospitalization data from PCDaS API.

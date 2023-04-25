@@ -4,12 +4,14 @@
 \alias{generic_pcdas_query}
 \title{Executes a generic PCDaS query}
 \usage{
-generic_pcdas_query(pcdas_token = NULL, sql_query)
+generic_pcdas_query(pcdas_token = NULL, sql_query, fetch_size = 65000)
 }
 \arguments{
 \item{pcdas_token}{character. PCDaS API token. If not provided, the function will look for it on renvirom.}
 
 \item{sql_query}{character. SQL.}
+
+\item{fetch_size}{character. Pagination size for API call.}
 }
 \value{
 A tibble

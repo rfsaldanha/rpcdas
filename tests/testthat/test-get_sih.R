@@ -60,3 +60,24 @@ test_that("get sih with mun residence and sex and age interval than works", {
   expect_equal("tbl_df", class(res)[1])
   expect_gt(nrow(res), 20)
 })
+
+test_that("get sih with uf residence by month works", {
+  res <- get_sih(agg = "uf_res", agg_time = "month", ano = 2010)
+
+  expect_equal("tbl_df", class(res)[1])
+  expect_gt(nrow(res), 300)
+})
+
+test_that("get sih with uf residence by week works", {
+  res <- get_sih(agg = "uf_res", agg_time = "week", ano = 2010)
+
+  expect_equal("tbl_df", class(res)[1])
+  expect_gt(nrow(res), 1400)
+})
+
+test_that("get sih with uf residence with multiple years works", {
+  res <- get_sih(agg = "uf_res", ano = c(2010, 2011))
+
+  expect_equal("tbl_df", class(res)[1])
+  expect_gt(nrow(res), 40)
+})
