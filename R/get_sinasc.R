@@ -103,7 +103,7 @@ get_sinasc <- function(agg, agg_time = "year", ano, pcdas_token = NULL, sexo = N
       agg_time = .data$agg_time,
       freq = as.numeric(.data$freq)
     ) %>%
-    dplyr::select(.data$agg, .data$agg_time, .data$freq)
+    dplyr::select("agg", "agg_time", "freq")
 
   return(content_df)
 }
