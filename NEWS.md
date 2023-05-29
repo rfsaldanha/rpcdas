@@ -1,3 +1,6 @@
+# rpcdas 0.3.0
+* Health regions with 449 units option.
+
 # rpcdas 0.2.0
 * Add month and week aggregation.
 * Query multiple years.
