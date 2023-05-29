@@ -19,6 +19,20 @@ test_that("get sim with reg saude residence works", {
   expect_gt(nrow(res), 30)
 })
 
+test_that("get sim with reg saude 449 residence works", {
+  res <- get_sim(agg = "regsaude_449_res", ano = 2010)
+
+  expect_equal("tbl_df", class(res)[1])
+  expect_gt(nrow(res), 440)
+})
+
+test_that("get sim with reg saude 449 occurence works", {
+  res <- get_sim(agg = "regsaude_449_ocor", ano = 2010)
+
+  expect_equal("tbl_df", class(res)[1])
+  expect_gt(nrow(res), 440)
+})
+
 test_that("get sim with mun occurence works", {
   res <- get_sim(agg = "mun_ocor", ano = 2010)
 
@@ -35,6 +49,13 @@ test_that("get sim with uf occurence works", {
 
 test_that("get sim with reg saude occurence works", {
   res <- get_sim(agg = "regsaude_ocor", ano = 2010)
+
+  expect_equal("tbl_df", class(res)[1])
+  expect_gt(nrow(res), 30)
+})
+
+test_that("get sim with reg saude 449 occurence works", {
+  res <- get_sim(agg = "regsaude_449_ocor", ano = 2010)
 
   expect_equal("tbl_df", class(res)[1])
   expect_gt(nrow(res), 30)

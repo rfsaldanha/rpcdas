@@ -12,6 +12,34 @@ test_that("get sih with mun occurence works", {
   expect_gt(nrow(res), 3000)
 })
 
+test_that("get sih with regsaude residence works", {
+  res <- get_sih(agg = "regsaude_res", ano = 2010)
+
+  expect_equal("tbl_df", class(res)[1])
+  expect_gt(nrow(res), 330)
+})
+
+test_that("get sih with regsaude occurence works", {
+  res <- get_sih(agg = "regsaude_ocor", ano = 2010)
+
+  expect_equal("tbl_df", class(res)[1])
+  expect_gt(nrow(res), 330)
+})
+
+test_that("get sih with regsaude 449 residence works", {
+  res <- get_sih(agg = "regsaude_449_res", ano = 2010)
+
+  expect_equal("tbl_df", class(res)[1])
+  expect_gt(nrow(res), 440)
+})
+
+test_that("get sih with regsaude occurence works", {
+  res <- get_sih(agg = "regsaude_449_ocor", ano = 2010)
+
+  expect_equal("tbl_df", class(res)[1])
+  expect_gt(nrow(res), 440)
+})
+
 test_that("get sih with uf residence works", {
   res <- get_sih(agg = "uf_res", ano = 2010)
 
