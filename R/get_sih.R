@@ -122,7 +122,7 @@ get_sih <- function(agg, agg_time = "year", ano, pcdas_token = NULL, sexo = NULL
     tibble::as_tibble() %>%
     dplyr::mutate(
       agg = as.numeric(.data$agg),
-      agg_time = .data$agg_time,
+      agg_time = "agg_time",
       freq = as.numeric(.data$freq)
     ) %>%
     dplyr::select("agg", "agg_time", "freq")
