@@ -1,5 +1,6 @@
 # rpcdas 0.4.0
 * New function to use the `audio_description` API endpoint for text to audio feature.
+* New function to use the `text_description` API endpoint for data to text feature.
 
 # rpcdas 0.3.0
 * Health regions with 449 units option.
