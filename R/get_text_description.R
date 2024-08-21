@@ -10,9 +10,9 @@
 #' @export
 #'
 #' @examples
-#' get_audio_description(df = iris, prompt = "This json data contains measurements of sepal length and width and petal length and width. Write a small paragraph describing the species. Do not mention the file format.")
+#' get_text_description(df = iris, prompt = "This json data contains measurements of sepal length and width and petal length and width. Write a small paragraph describing the species. Do not mention the file format.")
 #'
-get_audio_description <- function(df, prompt, pcdas_token = NULL, throttle_rate = 1, max_tries = 10){
+get_text_description <- function(df, prompt, pcdas_token = NULL, throttle_rate = 1, max_tries = 10){
   # Function argument check
   checkmate::assert_data_frame(df)
   checkmate::assert_string(prompt)
