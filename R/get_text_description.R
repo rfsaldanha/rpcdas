@@ -31,7 +31,7 @@ get_text_description <- function(df, prompt, pcdas_token = NULL, throttle_rate =
   request_body <- list(
     token = list(token = pcdas_token),
     data = list(
-      data = jsonlite::toJSON(x = iris),
+      data = jsonlite::toJSON(x = df),
       context = prompt
     )
   )
