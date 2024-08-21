@@ -6,7 +6,7 @@ rpcdas is an R package with wrapper functions for the PCDaS API.
 
 Currently, this package is available only on Github.
 
-```{r}
+```r
 remotes::install_github("rfsaldanha/rpcdas")
 library(rpcdas)
 ```
@@ -15,7 +15,7 @@ library(rpcdas)
 
 The PCDaS API requires an access token. After receiving your token, you can inform it at each package function or store the token at renviron for more convenient use. 
 
-```{r}
+```r
 Sys.setenv("pcdas_token" = "YOUR_PCDAS_TOKEN")
 ```
 
@@ -28,7 +28,7 @@ This package provides some functions for more convenient use of the PCDaS API.
 
 ### List available indexes
 
-```{r}
+```r
 list_pcdas_tables()
 ```
 
@@ -36,7 +36,7 @@ The function above will list the available indexes for your token.
 
 ### SIM
 
-```{r}
+```r
 # Total number of deaths by municipality of residence in 2010.
 get_sim(agg = "mun_res", ano = 2010)
 
@@ -58,7 +58,7 @@ get_sim(agg = "uf_res", ano = 2010, more_filters = "LEFT(CAUSABAS, 1) IN ('V', '
 
 ### SINASC
 
-```{r}
+```r
 # Total number of births by municipality of residence in 2010
 get_sinasc(agg = "mun_res", ano = 2010)
 
@@ -71,7 +71,7 @@ get_sinasc(agg = "mun_res", ano = 2010, sexo = "Masculino")
 
 ### SIH
 
-```{r}
+```r
 # Total number of hospitalizations by municipality of residence in 2010
 get_sih(agg = "mun_res", ano = 2010)
 
@@ -90,7 +90,7 @@ get_sih(agg = "uf_res", ano = 2010, idade_a = 10, idade_b = 30)
 
 This function allows a generic query to the PCDaS indexes where you should write a SQL query.
 
-```{r}
+```r
 generic_pcdas_query(sql_query = "SELECT N_AIH, DT_INTER, PROC_REA FROM \"datasus-sih\" LIMIT 100")
 ```
 
