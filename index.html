@@ -5,18 +5,15 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="Wrapper functions for the PCDaS API.">
 <title>PCDaS API Wrapper • rpcdas</title>
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="deps/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet">
-<script src="deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="PCDaS API Wrapper">
+<link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
+<link href="deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
+<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="PCDaS API Wrapper">
+<meta name="description" content="Wrapper functions for the PCDaS API.">
 <meta property="og:description" content="Wrapper functions for the PCDaS API.">
-<!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]--><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-2M7VLSRDCB"></script><script>
+<!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-2M7VLSRDCB"></script><script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
@@ -26,36 +23,32 @@
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
-    
 
-    <nav class="navbar fixed-top navbar-light navbar-expand-lg bg-light"><div class="container">
-    
+
+    <nav class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light" aria-label="Site navigation"><div class="container">
+
     <a class="navbar-brand me-2" href="index.html">rpcdas</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
-    
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
-<li class="nav-item">
-  <a class="nav-link" href="reference/index.html">Reference</a>
-</li>
-<li class="nav-item">
-  <a class="nav-link" href="news/index.html">Changelog</a>
-</li>
+<li class="nav-item"><a class="nav-link" href="reference/index.html">Reference</a></li>
+<li class="nav-item"><a class="nav-link" href="news/index.html">Changelog</a></li>
       </ul>
-<form class="form-inline my-2 my-lg-0" role="search">
-        <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="search.json" id="search-input" placeholder="Search for" autocomplete="off">
-</form>
-
-      <ul class="navbar-nav"></ul>
+<ul class="navbar-nav">
+<li class="nav-item"><form class="form-inline" role="search">
+ <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="search.json">
+</form></li>
+      </ul>
 </div>
 
-    
+
   </div>
 </nav><div class="container template-home">
 <div class="row">
@@ -67,14 +60,13 @@
 <h2 id="instalation">Instalation<a class="anchor" aria-label="anchor" href="#instalation"></a>
 </h2>
 <p>Currently, this package is available only on Github.</p>
-<pre class="{r}"><code><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"rfsaldanha/rpcdas"</span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rfsaldanha.github.io/rpcdas/">rpcdas</a></span><span class="op">)</span></span></code></pre>
+<p><code>{r} remotes::install_github("rfsaldanha/rpcdas") library(rpcdas)</code></p>
 </div>
 <div class="section level2">
 <h2 id="token">Token<a class="anchor" aria-label="anchor" href="#token"></a>
 </h2>
 <p>The PCDaS API requires an access token. After receiving your token, you can inform it at each package function or store the token at renviron for more convenient use.</p>
-<pre class="{r}"><code><span><span class="fu"><a href="https://rdrr.io/r/base/Sys.setenv.html" class="external-link">Sys.setenv</a></span><span class="op">(</span><span class="st">"pcdas_token"</span> <span class="op">=</span> <span class="st">"YOUR_PCDAS_TOKEN"</span><span class="op">)</span></span></code></pre>
+<p><code>{r} Sys.setenv("pcdas_token" = "YOUR_PCDAS_TOKEN")</code></p>
 <p>After running the line above, the package functions will access your PCDaS token internally.</p>
 </div>
 <div class="section level2">
@@ -84,66 +76,83 @@
 <div class="section level3">
 <h3 id="list-available-indexes">List available indexes<a class="anchor" aria-label="anchor" href="#list-available-indexes"></a>
 </h3>
-<pre class="{r}"><code><span><span class="fu"><a href="reference/list_pcdas_tables.html">list_pcdas_tables</a></span><span class="op">(</span><span class="op">)</span></span></code></pre>
+<p><code>{r} list_pcdas_tables()</code></p>
 <p>The function above will list the available indexes for your token.</p>
 </div>
 <div class="section level3">
 <h3 id="sim">SIM<a class="anchor" aria-label="anchor" href="#sim"></a>
 </h3>
-<pre class="{r}"><code><span><span class="co"># Total number of deaths by municipality of residence in 2010.</span></span>
-<span><span class="fu"><a href="reference/get_sim.html">get_sim</a></span><span class="op">(</span>agg <span class="op">=</span> <span class="st">"mun_res"</span>, ano <span class="op">=</span> <span class="fl">2010</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Total number of deaths by state of occurrence in 2010.</span></span>
-<span><span class="fu"><a href="reference/get_sim.html">get_sim</a></span><span class="op">(</span>agg <span class="op">=</span> <span class="st">"uf_ocor"</span>, ano <span class="op">=</span> <span class="fl">2010</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Total number of deaths by state of residence in 2010, filtering ages between 10 and 30 years old.</span></span>
-<span><span class="fu"><a href="reference/get_sim.html">get_sim</a></span><span class="op">(</span>agg <span class="op">=</span> <span class="st">"uf_res"</span>, ano <span class="op">=</span> <span class="fl">2010</span>, idade_a <span class="op">=</span> <span class="fl">10</span>, idade_b <span class="op">=</span> <span class="fl">30</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Total number of deaths by state of residence in 2010 were the basic cause of death starting with the letter I.</span></span>
-<span><span class="fu"><a href="reference/get_sim.html">get_sim</a></span><span class="op">(</span>agg <span class="op">=</span> <span class="st">"uf_res"</span>, ano <span class="op">=</span> <span class="fl">2010</span>, cid_like <span class="op">=</span> <span class="st">"I"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Total number of deaths by state of residence in 2010 were the basic cause of deaths are some of the vector.</span></span>
-<span><span class="fu"><a href="reference/get_sim.html">get_sim</a></span><span class="op">(</span>agg <span class="op">=</span> <span class="st">"uf_res"</span>, ano <span class="op">=</span> <span class="fl">2010</span>, cid_in <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"I219"</span>, <span class="st">"B342"</span>, <span class="st">"R98"</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Total number of deaths by state of residence in 2010 with a SQL filter.</span></span>
-<span><span class="fu"><a href="reference/get_sim.html">get_sim</a></span><span class="op">(</span>agg <span class="op">=</span> <span class="st">"uf_res"</span>, ano <span class="op">=</span> <span class="fl">2010</span>, more_filters <span class="op">=</span> <span class="st">"LEFT(CAUSABAS, 1) IN ('V', 'W', 'X', 'Y')"</span><span class="op">)</span></span></code></pre>
+<p>```{r} # Total number of deaths by municipality of residence in 2010. get_sim(agg = “mun_res”, ano = 2010)</p>
 </div>
-<div class="section level3">
-<h3 id="sinasc">SINASC<a class="anchor" aria-label="anchor" href="#sinasc"></a>
-</h3>
-<pre class="{r}"><code><span><span class="co"># Total number of births by municipality of residence in 2010</span></span>
-<span><span class="fu"><a href="reference/get_sinasc.html">get_sinasc</a></span><span class="op">(</span>agg <span class="op">=</span> <span class="st">"mun_res"</span>, ano <span class="op">=</span> <span class="fl">2010</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Total number of births by state of borth in 2010</span></span>
-<span><span class="fu"><a href="reference/get_sinasc.html">get_sinasc</a></span><span class="op">(</span>agg <span class="op">=</span> <span class="st">"uf_ocor"</span>, ano <span class="op">=</span> <span class="fl">2010</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Total number of births by municipality of residence in 2010, with sex filter</span></span>
-<span><span class="fu"><a href="reference/get_sinasc.html">get_sinasc</a></span><span class="op">(</span>agg <span class="op">=</span> <span class="st">"mun_res"</span>, ano <span class="op">=</span> <span class="fl">2010</span>, sexo <span class="op">=</span> <span class="st">"Masculino"</span><span class="op">)</span></span></code></pre>
 </div>
+</div>
+<div class="section level1">
+<h1 id="total-number-of-deaths-by-state-of-occurrence-in-2010">Total number of deaths by state of occurrence in 2010.<a class="anchor" aria-label="anchor" href="#total-number-of-deaths-by-state-of-occurrence-in-2010"></a>
+</h1>
+<p>get_sim(agg = “uf_ocor”, ano = 2010)</p>
+</div>
+<div class="section level1">
+<h1 id="total-number-of-deaths-by-state-of-residence-in-2010-filtering-ages-between-10-and-30-years-old">Total number of deaths by state of residence in 2010, filtering ages between 10 and 30 years old.<a class="anchor" aria-label="anchor" href="#total-number-of-deaths-by-state-of-residence-in-2010-filtering-ages-between-10-and-30-years-old"></a>
+</h1>
+<p>get_sim(agg = “uf_res”, ano = 2010, idade_a = 10, idade_b = 30)</p>
+</div>
+<div class="section level1">
+<h1 id="total-number-of-deaths-by-state-of-residence-in-2010-were-the-basic-cause-of-death-starting-with-the-letter-i">Total number of deaths by state of residence in 2010 were the basic cause of death starting with the letter I.<a class="anchor" aria-label="anchor" href="#total-number-of-deaths-by-state-of-residence-in-2010-were-the-basic-cause-of-death-starting-with-the-letter-i"></a>
+</h1>
+<p>get_sim(agg = “uf_res”, ano = 2010, cid_like = “I”)</p>
+</div>
+<div class="section level1">
+<h1 id="total-number-of-deaths-by-state-of-residence-in-2010-were-the-basic-cause-of-deaths-are-some-of-the-vector">Total number of deaths by state of residence in 2010 were the basic cause of deaths are some of the vector.<a class="anchor" aria-label="anchor" href="#total-number-of-deaths-by-state-of-residence-in-2010-were-the-basic-cause-of-deaths-are-some-of-the-vector"></a>
+</h1>
+<p>get_sim(agg = “uf_res”, ano = 2010, cid_in = c(“I219”, “B342”, “R98”))</p>
+</div>
+<div class="section level1">
+<h1 id="total-number-of-deaths-by-state-of-residence-in-2010-with-a-sql-filter">Total number of deaths by state of residence in 2010 with a SQL filter.<a class="anchor" aria-label="anchor" href="#total-number-of-deaths-by-state-of-residence-in-2010-with-a-sql-filter"></a>
+</h1>
+<p>get_sim(agg = “uf_res”, ano = 2010, more_filters = “LEFT(CAUSABAS, 1) IN (‘V’, ‘W’, ‘X’, ‘Y’)”)</p>
+<pre><code>
+### SINASC
+
+```{r}
+# Total number of births by municipality of residence in 2010
+get_sinasc(agg = "mun_res", ano = 2010)
+
+# Total number of births by state of borth in 2010
+get_sinasc(agg = "uf_ocor", ano = 2010)
+
+# Total number of births by municipality of residence in 2010, with sex filter
+get_sinasc(agg = "mun_res", ano = 2010, sexo = "Masculino")</code></pre>
 <div class="section level3">
 <h3 id="sih">SIH<a class="anchor" aria-label="anchor" href="#sih"></a>
 </h3>
-<pre class="{r}"><code><span><span class="co"># Total number of hospitalizations by municipality of residence in 2010</span></span>
-<span><span class="fu"><a href="reference/get_sih.html">get_sih</a></span><span class="op">(</span>agg <span class="op">=</span> <span class="st">"mun_res"</span>, ano <span class="op">=</span> <span class="fl">2010</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Total number of hospitalizations by state of the hospital in 2010</span></span>
-<span><span class="fu"><a href="reference/get_sih.html">get_sih</a></span><span class="op">(</span>agg <span class="op">=</span> <span class="st">"uf_ocor"</span>, ano <span class="op">=</span> <span class="fl">2010</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Total number of hospitalizations by municipality of residence in 2010 with sex filter</span></span>
-<span><span class="fu"><a href="reference/get_sih.html">get_sih</a></span><span class="op">(</span>agg <span class="op">=</span> <span class="st">"mun_res"</span>, ano <span class="op">=</span> <span class="fl">2010</span>, sexo <span class="op">=</span> <span class="st">"Masculino"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Total number of hospitalizations by state of residence in 2010 with age filters</span></span>
-<span><span class="fu"><a href="reference/get_sih.html">get_sih</a></span><span class="op">(</span>agg <span class="op">=</span> <span class="st">"uf_res"</span>, ano <span class="op">=</span> <span class="fl">2010</span>, idade_a <span class="op">=</span> <span class="fl">10</span>, idade_b <span class="op">=</span> <span class="fl">30</span><span class="op">)</span></span></code></pre>
+<p>```{r} # Total number of hospitalizations by municipality of residence in 2010 get_sih(agg = “mun_res”, ano = 2010)</p>
 </div>
-<div class="section level3">
-<h3 id="generic-query">Generic query<a class="anchor" aria-label="anchor" href="#generic-query"></a>
-</h3>
-<p>This function allows a generic query to the PCDaS indexes where you should write a SQL query.</p>
-<pre class="{r}"><code><span><span class="fu"><a href="reference/generic_pcdas_query.html">generic_pcdas_query</a></span><span class="op">(</span>sql_query <span class="op">=</span> <span class="st">"SELECT N_AIH, DT_INTER, PROC_REA FROM \"datasus-sih\" LIMIT 100"</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="section level1">
+<h1 id="total-number-of-hospitalizations-by-state-of-the-hospital-in-2010">Total number of hospitalizations by state of the hospital in 2010<a class="anchor" aria-label="anchor" href="#total-number-of-hospitalizations-by-state-of-the-hospital-in-2010"></a>
+</h1>
+<p>get_sih(agg = “uf_ocor”, ano = 2010)</p>
+</div>
+<div class="section level1">
+<h1 id="total-number-of-hospitalizations-by-municipality-of-residence-in-2010-with-sex-filter">Total number of hospitalizations by municipality of residence in 2010 with sex filter<a class="anchor" aria-label="anchor" href="#total-number-of-hospitalizations-by-municipality-of-residence-in-2010-with-sex-filter"></a>
+</h1>
+<p>get_sih(agg = “mun_res”, ano = 2010, sexo = “Masculino”)</p>
+</div>
+<div class="section level1">
+<h1 id="total-number-of-hospitalizations-by-state-of-residence-in-2010-with-age-filters">Total number of hospitalizations by state of residence in 2010 with age filters<a class="anchor" aria-label="anchor" href="#total-number-of-hospitalizations-by-state-of-residence-in-2010-with-age-filters"></a>
+</h1>
+<p>get_sih(agg = “uf_res”, ano = 2010, idade_a = 10, idade_b = 30)</p>
+<pre><code>
+
+### Generic query
+
+This function allows a generic query to the PCDaS indexes where you should write a SQL query.
+
+```{r}
+generic_pcdas_query(sql_query = "SELECT N_AIH, DT_INTER, PROC_REA FROM \"datasus-sih\" LIMIT 100")</code></pre>
 <p>The query may return 10,000 lines maximum.</p>
 </div>
-</div>
-</div>
+
   </main><aside class="col-md-3"><div class="license">
 <h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
@@ -174,21 +183,19 @@
 
 
     <footer><div class="pkgdown-footer-left">
-  <p></p>
-<p>Developed by Raphael Saldanha.</p>
+  <p>Developed by Raphael Saldanha.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
 </div>
 
     </footer>
 </div>
 
-  
 
-  
+
+
 
   </body>
 </html>
