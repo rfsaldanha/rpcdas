@@ -10,7 +10,7 @@
 * Query multiple years.
 
 # rpcdas 0.1.4
-* Verify token access to index internally on get_* functions.
+* Verify token access to index internally on `get_*` functions.
 
 # rpcdas 0.1.3
 * Documentation correction.
@@ -22,5 +22,4 @@
 * Adds get_sinasc function with basic filters.
 
 # rpcdas 0.1.0
-
 * First version with get_sim and other basic functions.
