@@ -16,6 +16,7 @@ Imports:
     httr2,
     jsonlite,
     magrittr,
+    RCurl,
     rlang,
     stringr,
     tibble
