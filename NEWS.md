@@ -1,3 +1,6 @@
+# rpcdas 0.4.1
+* Assert valid event dates for SIM, SIH and SINASC for date aggregation.
+
 # rpcdas 0.4.0
 * New function to use the `audio_description` API endpoint for text to audio feature.
 * New function to use the `text_description` API endpoint for data to text feature.
