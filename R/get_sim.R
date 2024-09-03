@@ -78,7 +78,7 @@ get_sim <- function(agg, agg_time = "year", ano, pcdas_token = NULL, sexo = NULL
   # SQL query basic partials
   sql_select <- glue::glue("SELECT {agg_geo} AS agg, COUNT(1) AS freq")
   sql_from <- glue::glue("FROM \"datasus-sim\"")
-  sql_where <- glue::glue("WHERE ano_obito IN ({glue::glue_collapse(ano, sep = ', ')})")
+  sql_where <- glue::glue("WHERE ano_obito IN ({glue::glue_collapse(ano, sep = ', ')}) AND data_obito IS NOT NULL")
   sql_group_by <- glue::glue("GROUP BY {agg_geo}")
 
   # Time aggregation additions
