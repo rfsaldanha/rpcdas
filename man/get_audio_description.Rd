@@ -30,6 +30,12 @@ an audio file.
 Get audio from text string
 }
 \examples{
+\dontrun{
 file <- tempfile(fileext = ".mp3")
-get_audio_description(text = "Ciência de Dados, para nós da PCDaS, é um campo de estudo que se destaca pela capacidade de auxiliar a descoberta de informação útil a partir de grandes ou complexas bases de dados.", dest_file = file)
+text <- paste(
+  "Ciência de Dados, para nós da PCDaS, é um campo de estudo",
+  "que se destaca pela capacidade de auxiliar a descoberta de informação útil."
+)
+get_audio_description(text = text, dest_file = file)
+}
 }

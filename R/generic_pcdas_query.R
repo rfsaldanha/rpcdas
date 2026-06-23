@@ -33,11 +33,8 @@ generic_pcdas_query <- function(pcdas_token = NULL, sql_query, fetch_size = 6500
   # Create list with token and SQL query
   request_body <- list(token = list(token = pcdas_token), sql = list(sql = list(query = sql_query, fetch_size = fetch_size)))
 
-  # Request body as JSON
-  request_body_json <- jsonlite::toJSON(request_body, auto_unbox = TRUE)
-
   # Execute PCDaS API request
-  content <- pcdas_query_request(body = request_body_json)
+  content <- pcdas_query_request(body = request_body, pcdas_token = pcdas_token)
 
   # Transform content to data.frame and tibble
   content_df <- convert_list_content_to_df(content) %>%

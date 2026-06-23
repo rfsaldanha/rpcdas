@@ -12,6 +12,8 @@ get_sih(
   sexo = NULL,
   idade_a = NULL,
   idade_b = NULL,
+  cid_like = NULL,
+  cid_in = NULL,
   more_filters = NULL,
   fetch_size = 65000
 )
@@ -30,6 +32,10 @@ get_sih(
 \item{idade_a}{numeric. Minimum age of the patient, in years.}
 
 \item{idade_b}{numeric. Maximum age of the patient, in years.}
+
+\item{cid_like}{character. CID-10 code of principal diagnosis. Used with a \code{LIKE} operator.}
+
+\item{cid_in}{character vector. CID-10 codes of principal diagnosis. Used with a \code{IN} operator.}
 
 \item{more_filters}{character. Additional filters can be added by using this parameter, with a SQL query.}
 

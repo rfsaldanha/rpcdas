@@ -30,6 +30,12 @@ a character string.
 Get a description of a data frame
 }
 \examples{
-get_text_description(df = iris, prompt = "This json data contains measurements of sepal length and width and petal length and width. Write a small paragraph describing the species. Do not mention the file format.")
+\dontrun{
+prompt <- paste(
+  "This data contains sepal and petal measurements.",
+  "Write a small paragraph describing the species."
+)
+get_text_description(df = iris, prompt = prompt)
+}
 
 }

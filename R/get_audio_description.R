@@ -10,8 +10,14 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' file <- tempfile(fileext = ".mp3")
-#' get_audio_description(text = "Ciência de Dados, para nós da PCDaS, é um campo de estudo que se destaca pela capacidade de auxiliar a descoberta de informação útil a partir de grandes ou complexas bases de dados.", dest_file = file)
+#' text <- paste(
+#'   "Ciência de Dados, para nós da PCDaS, é um campo de estudo",
+#'   "que se destaca pela capacidade de auxiliar a descoberta de informação útil."
+#' )
+#' get_audio_description(text = text, dest_file = file)
+#' }
 get_audio_description <- function(text, dest_file, pcdas_token = NULL, throttle_rate = 1, max_tries = 10){
   # Function argument check
   checkmate::assert_string(text)
@@ -27,13 +33,10 @@ get_audio_description <- function(text, dest_file, pcdas_token = NULL, throttle_
     data = list(text = text)
   )
 
-  # Request body as JSON
-  request_body_json <- jsonlite::toJSON(request_body, auto_unbox = TRUE)
-
   # Create request
   req <- httr2::request(base_url = pcdas_url) %>%
     httr2::req_url_path_append("audio_description") %>%
-    httr2::req_body_raw(request_body_json) %>%
+    httr2::req_body_json(request_body, auto_unbox = TRUE) %>%
     httr2::req_throttle(throttle_rate, realm = pcdas_url) %>%
     httr2::req_retry(max_tries = max_tries)
 

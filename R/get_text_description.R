@@ -10,17 +10,18 @@
 #' @export
 #'
 #' @examples
-#' get_text_description(df = iris, prompt = "This json data contains measurements of sepal length and width and petal length and width. Write a small paragraph describing the species. Do not mention the file format.")
+#' \dontrun{
+#' prompt <- paste(
+#'   "This data contains sepal and petal measurements.",
+#'   "Write a small paragraph describing the species."
+#' )
+#' get_text_description(df = iris, prompt = prompt)
+#' }
 #'
 get_text_description <- function(df, prompt, pcdas_token = NULL, throttle_rate = 1, max_tries = 10){
   # Function argument check
   checkmate::assert_data_frame(df)
   checkmate::assert_string(prompt)
-
-  # Try to get PCDaS API token from renviron if not provided
-  if(is.null(pcdas_token)){
-    pcdas_token <- get_pcdas_token_renviron()
-  }
 
   # Try to get PCDaS API token from renviron if not provided
   if(is.null(pcdas_token)){
@@ -36,13 +37,10 @@ get_text_description <- function(df, prompt, pcdas_token = NULL, throttle_rate =
     )
   )
 
-  # Request body as JSON
-  request_body_json <- jsonlite::toJSON(request_body, auto_unbox = TRUE)
-
   # Create request
   req <- httr2::request(base_url = pcdas_url) %>%
     httr2::req_url_path_append("text_description") %>%
-    httr2::req_body_raw(request_body_json) %>%
+    httr2::req_body_json(request_body, auto_unbox = TRUE) %>%
     httr2::req_throttle(throttle_rate, realm = pcdas_url) %>%
     httr2::req_retry(max_tries = max_tries)
 

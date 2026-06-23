@@ -59,7 +59,7 @@ get_sinasc <- function(
   }
 
   # Check if token have access to index
-  if (!("datasus-sinasc" %in% list_pcdas_tables())) {
+  if (!("datasus-sinasc" %in% list_pcdas_tables(pcdas_token = pcdas_token))) {
     stop(
       "Your token does not have access to 'datasus-sinasc' index. Please ask PCDaS to grant your access to this index."
     )
@@ -139,11 +139,8 @@ get_sinasc <- function(
     sql = list(sql = list(query = sql_query, fetch_size = fetch_size))
   )
 
-  # Request body as JSON
-  request_body_json <- jsonlite::toJSON(request_body, auto_unbox = TRUE)
-
   # Execute PCDaS API request
-  content <- pcdas_query_request(body = request_body_json)
+  content <- pcdas_query_request(body = request_body, pcdas_token = pcdas_token)
 
   # Transform content to data.frame and tibble
   if (length(content) == 0) {

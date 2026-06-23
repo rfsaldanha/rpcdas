@@ -12,7 +12,8 @@ pcdas_query_request(
 )
 }
 \arguments{
-\item{body}{Body of the request, in JSON format.}
+\item{body}{Body of the request, as a list. Character JSON bodies are still
+accepted for backward compatibility.}
 
 \item{pcdas_token}{character. PCDaS API token. If not provided, the function will look for it on renvirom.}
 

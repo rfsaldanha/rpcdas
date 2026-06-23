@@ -11,6 +11,8 @@
 #' @param sexo character. Sex of the new birth \code{Masculino} for males, \code{Feminino} for females and \code{Ignorado} for unknown.
 #' @param idade_a numeric. Minimum age of the patient, in years.
 #' @param idade_b numeric. Maximum age of the patient, in years.
+#' @param cid_like character. CID-10 code of principal diagnosis. Used with a \code{LIKE} operator.
+#' @param cid_in character vector. CID-10 codes of principal diagnosis. Used with a \code{IN} operator.
 #' @param more_filters character. Additional filters can be added by using this parameter, with a SQL query.
 #' @param fetch_size character. Pagination size for API call.
 #'
@@ -32,6 +34,8 @@ get_sih <- function(
   sexo = NULL,
   idade_a = NULL,
   idade_b = NULL,
+  cid_like = NULL,
+  cid_in = NULL,
   more_filters = NULL,
   fetch_size = 65000
 ) {
@@ -59,6 +63,8 @@ get_sih <- function(
   )
   checkmate::assert_number(x = idade_a, lower = 0, null.ok = TRUE)
   checkmate::assert_number(x = idade_b, lower = 0, null.ok = TRUE)
+  checkmate::assert_string(x = cid_like, null.ok = TRUE)
+  checkmate::assert_vector(x = cid_in, null.ok = TRUE)
   checkmate::assert_string(x = more_filters, null.ok = TRUE)
   checkmate::assert_number(x = fetch_size, lower = 1)
 
@@ -68,7 +74,7 @@ get_sih <- function(
   }
 
   # Check if token have access to index
-  if (!("datasus-sih" %in% list_pcdas_tables())) {
+  if (!("datasus-sih" %in% list_pcdas_tables(pcdas_token = pcdas_token))) {
     stop(
       "Your token does not have access to 'datasus-sih' index. Please ask PCDaS to grant your access to this index."
     )
@@ -151,6 +157,23 @@ get_sih <- function(
     )
   }
 
+  # CID like
+  if (!is.null(cid_like)) {
+    sql_where <- glue::glue(
+      sql_where,
+      "AND DIAG_PRINC LIKE '{cid_like}%'",
+      .sep = " "
+    )
+  }
+
+  # CID in
+  if (!is.null(cid_in)) {
+    sl <- as.character(cid_in)
+    sl <- stringr::str_replace(stringr::str_replace(cid_in, "^", "'"), "$", "'")
+    sl <- glue::glue_collapse(sl, sep = ", ")
+    sql_where <- glue::glue(sql_where, "AND DIAG_PRINC IN ({sl})", .sep = " ")
+  }
+
   # More filters
   if (!is.null(more_filters)) {
     sql_where <- glue::glue(sql_where, "AND {more_filters}", .sep = " ")
@@ -171,11 +194,8 @@ get_sih <- function(
     sql = list(sql = list(query = sql_query, fetch_size = fetch_size))
   )
 
-  # Request body as JSON
-  request_body_json <- jsonlite::toJSON(request_body, auto_unbox = TRUE)
-
   # Execute PCDaS API request
-  content <- pcdas_query_request(body = request_body_json)
+  content <- pcdas_query_request(body = request_body, pcdas_token = pcdas_token)
 
   # Transform content to data.frame and tibble
   if (length(content) == 0) {

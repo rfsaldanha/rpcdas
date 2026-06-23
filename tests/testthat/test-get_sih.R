@@ -109,3 +109,24 @@ test_that("get sih with uf residence with multiple years works", {
   expect_equal("tbl_df", class(res)[1])
   expect_gt(nrow(res), 40)
 })
+
+test_that("get sih with principal diagnosis cid_like works", {
+  res <- get_sih(agg = "uf_res", ano = 2013, cid_like = "A00")
+
+  expect_equal("tbl_df", class(res)[1])
+  expect_gt(nrow(res), 0)
+})
+
+test_that("get sih with principal diagnosis cid_in works", {
+  res <- get_sih(agg = "uf_res", ano = 2013, cid_in = c("I219"))
+
+  expect_equal("tbl_df", class(res)[1])
+  expect_gt(nrow(res), 0)
+})
+
+test_that("get sih with principal diagnosis more_filters works", {
+  res <- get_sih(agg = "uf_res", ano = 2013, more_filters = "DIAG_PRINC LIKE 'A00%'")
+
+  expect_equal("tbl_df", class(res)[1])
+  expect_gt(nrow(res), 0)
+})

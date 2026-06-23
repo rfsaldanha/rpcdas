@@ -2,7 +2,8 @@
 #'
 #' Execute PCDaS API query request.
 #'
-#' @param body Body of the request, in JSON format.
+#' @param body Body of the request, as a list. Character JSON bodies are still
+#'   accepted for backward compatibility.
 #' @param pcdas_token character. PCDaS API token. If not provided, the function will look for it on renvirom.
 #' @param throttle_rate Rate of requests per second allowed. Defaults to 1 request per second.
 #' @param max_tries Max number of retries before fail. Defaults to 10.
@@ -16,9 +17,16 @@ pcdas_query_request <- function(
   max_tries = 10
 ) {
   # Function argument check
-  checkmate::assert_string(x = body)
+  checkmate::assert(
+    checkmate::check_list(x = body),
+    checkmate::check_string(x = body)
+  )
   checkmate::assert_numeric(x = throttle_rate, lower = 0)
   checkmate::assert_numeric(x = max_tries, lower = 0)
+
+  if (is.character(body)) {
+    body <- jsonlite::fromJSON(body, simplifyVector = FALSE)
+  }
 
   # Try to get PCDaS API token from renviron if not provided
   if (is.null(pcdas_token)) {
@@ -32,7 +40,7 @@ pcdas_query_request <- function(
     # Create request
     req <- httr2::request(base_url = pcdas_url) %>%
       httr2::req_url_path_append("sql_query") %>%
-      httr2::req_body_raw(body) %>%
+      httr2::req_body_json(body, auto_unbox = TRUE) %>%
       httr2::req_throttle(throttle_rate, realm = pcdas_url) %>%
       httr2::req_retry(max_tries = max_tries)
 
@@ -52,12 +60,9 @@ pcdas_query_request <- function(
           length(tmp_content$rows) > 0
       ) {
         more <- TRUE
-        body <- jsonlite::toJSON(
-          list(
-            token = list(token = pcdas_token),
-            sql = list(sql = list(cursor = content[[length(content)]]$cursor))
-          ),
-          auto_unbox = TRUE
+        body <- list(
+          token = list(token = pcdas_token),
+          sql = list(sql = list(cursor = content[[length(content)]]$cursor))
         )
         # If not, stops while statement
       } else {
